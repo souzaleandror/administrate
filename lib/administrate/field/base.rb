@@ -54,7 +54,10 @@ module Administrate
         private
 
         def default_text_search(table_field, search_term)
-          ["LOWER(TEXT(#{table_field})) LIKE ?", "%#{search_term.mb_chars.downcase}%"]
+          [
+            "LOWER(TEXT(#{table_field})) LIKE ?",
+            "%#{search_term.mb_chars.downcase}%",
+          ]
         end
       end
     end
