@@ -17,6 +17,22 @@ module Administrate
     def attribute_types
       self.class::ATTRIBUTE_TYPES
     end
+    
+     def filter_names
+        self.class::FILTER_NAMES
+    end
+    
+    def show_page_actions
+        self.class::SHOW_ACTIONS
+    end
+
+    def index_actions
+        self.class::INDEX_ACTIONS
+    end
+
+    def index_actions_linea
+        self.class::INDEX_ACTIONS_LINEA
+    end
 
     def attribute_type_for(attribute_name)
       attribute_types.fetch(attribute_name) do
