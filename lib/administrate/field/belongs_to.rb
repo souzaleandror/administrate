@@ -24,8 +24,11 @@ module Administrate
       private
 
       def candidate_resources
-        order = options.delete(:order)
-        order ? associated_class.order(order) : associated_class.all
+        associated_class.public_send candidate_scope
+      end
+
+      def candidate_scope
+        options.fetch(:scope, :all)
       end
 
       def display_candidate_resource(resource)
