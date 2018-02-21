@@ -29,6 +29,13 @@ module Administrate
     def new
       resource = resource_class.new
       authorize_resource(resource)
+      
+      params.each do |key,value|
+        if resource.has_attribute? key
+          resource.write_attribute(key, value)    
+        end
+      end
+      
       render locals: {
         page: Administrate::Page::Form.new(dashboard, resource),
       }
